@@ -19,10 +19,10 @@ public class Test {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
-  @Column(name = "name", nullable = false)
+  @Column(name = "name", nullable = false, length = 500)
   private String name;
 
-  @Column(name = "description", nullable = true)
+  @Column(name = "description", nullable = true, length = 1000)
   private String description;
 
   public long getId() {
