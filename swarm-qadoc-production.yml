@@ -1,0 +1,14 @@
+version: '3'
+services:
+  qadoc:
+    image: _replace_me_
+    hostname: "qadoc"
+    #env_file:
+    #  - /secrets/env/qadoc-production.env
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+
