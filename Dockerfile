@@ -4,4 +4,5 @@ COPY . /opt/qadoc
 
 WORKDIR /opt/qadoc
 
-CMD /opt/qadoc/mvnw spring-boot:run
+#CMD /opt/qadoc/mvnw spring-boot:run
+CMD sleep infinity
