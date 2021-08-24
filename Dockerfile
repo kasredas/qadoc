@@ -1,1 +1,7 @@
-FROM ubuntu:20.04
+FROM FROM openjdk:11
+
+COPY . /opt/qadoc
+
+WORKDIR /opt/qadoc
+
+CMD /opt/qadoc/mvnw spring-boot:run
