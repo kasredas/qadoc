@@ -3,26 +3,42 @@
 <head> 
     <title>Test data</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 </head>
 <body>
-    <p th:text="'Hello World Table'" />
+    <div class="row">
+        <div class="col s12">
+            <p th:text="'QaDoc'" />
+        </div>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th> Name </th>
-                <th> Description </th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${Test.empty}">
-                <td colspan="2"> No Tests </td>
-            </tr>
-            <tr th:each="Test : ${Test}">
-                <td><span th:text="${Test.name}"> Name </span></td>
-                <td><span th:text="${Test.description}"> Description </span></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col s12">
+            <table class="striped responsive-table highlight" >
+                <thead>
+                    <tr>
+                        <th> Id </th>
+                        <th> Name </th>
+                        <th> Description </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${Test.empty}">
+                        <td colspan="2"> No Tests </td>
+                    </tr>
+                    <tr th:each="Test : ${Test}">
+                        <td><span th:text="${Test.Id}"> Id </span></td>
+                        <td><span th:text="${Test.name}"> Name </span></td>
+                        <td><span th:text="${Test.description}"> Description </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
