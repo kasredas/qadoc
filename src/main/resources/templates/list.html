@@ -6,6 +6,9 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/css/custom.css">
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
@@ -22,19 +25,19 @@
             <table class="striped responsive-table highlight" >
                 <thead>
                     <tr>
-                        <th> Id </th>
-                        <th> Name </th>
-                        <th> Description </th>
+                        <th class="col s1"> Id </th>
+                        <th class="col s5"> Name </th>
+                        <th class="col s5"> Description </th>
                     </tr>
                 </thead>
-                <tbody>
-                <tr th:if="${Test.empty}">
+                <tbody class="">
+                <tr class="" th:if="${Test.empty}">
                         <td colspan="2"> No Tests </td>
                     </tr>
-                    <tr th:each="Test : ${Test}">
-                        <td><span th:text="${Test.Id}"> Id </span></td>
-                        <td><span th:text="${Test.name}"> Name </span></td>
-                        <td><span th:text="${Test.description}"> Description </span></td>
+                    <tr class="hoverable" th:each="Test : ${Test}">
+                        <td class="col s1 table-row-bigger" th:text="${Test.Id}"> Id </td>
+                        <td class="col s5 table-row-bigger break-word" th:text="${Test.name}"> Name </td>
+                        <td class="col s5 table-row-bigger break-word" th:text="${Test.description}"> Description </td>
                     </tr>
                 </tbody>
             </table>

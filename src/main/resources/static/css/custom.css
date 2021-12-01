@@ -1,0 +1,8 @@
+.break-word{
+    overflow-wrap: break-word;
+}
+
+.table-row-bigger{
+    min-height: 40px !important;
+    margin: 5px;
+}
