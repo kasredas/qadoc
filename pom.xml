@@ -14,7 +14,7 @@
 	<description>qadoc project</description>
 	<properties>
 		<java.version>11</java.version>
-		<org.slf4j.version>1.7.30</org.slf4j.version>
+		<org.slf4j.version>2.0.0-alpha5</org.slf4j.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -87,10 +87,6 @@
 			<artifactId>tomcat-jdbc</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 		</dependency>
@@ -129,7 +125,7 @@
 					<dependency>
 						<groupId>org.springframework</groupId>
 						<artifactId>springloaded</artifactId>
-						<version>1.2.6.RELEASE</version>
+						<version>1.2.8.RELEASE</version>
 					</dependency>
 				</dependencies>
 			</plugin>
