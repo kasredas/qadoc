@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col s6">
+            <p th:text="'QaDoc'" />
+        </div>
+        <div class="col s6">
+          <p class="right-align" >Welcome <span sec:authentication="name"></span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></p>
+        </div>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+      <form id="logoutForm" method="POST" th:action="@{/logout}">
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+      </form>
+
+      <div class="row">
+        <div class="col s6">
+          <a href="/list" class="waves-effect waves-light btn-large col s6">Test list</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <a href="#" class="waves-effect waves-light btn-large disabled col s6">Search</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <a href="#" class="waves-effect waves-light btn-large disabled col s6">Tags</a>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+        M.AutoInit();
+    </script>
+</body>
+</html>
