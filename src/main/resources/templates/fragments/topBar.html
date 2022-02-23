@@ -5,13 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
 
     <div th:fragment="topBar">
-        <div sec:authorize="isAuthenticated()">
+        <!-- <div sec:authorize="isAuthenticated()">
             <form id="logoutForm" method="POST" th:action="@{/logout}">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
@@ -31,7 +30,53 @@
 
             </div>
 
-        </div>
+        </div> -->
+
+        <div class="row">
+        <nav>
+            <div class="nav-wrapper teal">
+                <div class="row">
+                    <div class="col s4">
+                        <a href="/" class="brand-logo">QaDoc</a>
+                    </div>
+                    <div class="col s4">
+                        <ul id="nav-mobile" class="center hide-on-med-and-down">
+
+                            <li class="col s4">
+                                <a href="/">Home
+                                    <i class="material-icons left">home</i>
+                                </a>
+                            </li>
+                            <li class="col s4">
+                                <a href="/list">Tests
+                                    <i class="material-icons left">list</i>
+                                </a>
+                            </li>
+                            <li class="col s4">
+                                <a href="#" >Tags
+                                    <i class="material-icons left">apps</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s4">
+                        <li class="right-align"> Welcome <span sec:authentication="name"></span>
+                            | <a href="#" onclick="document.forms['logoutForm'].submit()">Logout</a>
+                        </li>
+                        <form id="logoutForm" method="POST" th:action="@{/logout}">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+          </nav>
+          </div>
+
+
+
+
+
+
 
     </div>
     <script>
