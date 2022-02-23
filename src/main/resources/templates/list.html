@@ -14,20 +14,8 @@
 
 </head>
 <body>
-    <div sec:authorize="isAuthenticated()">
-        <form id="logoutForm" method="POST" th:action="@{/logout}">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-    </div>
 
-    <div class="row">
-        <div class="col s6">
-            <p th:text="'QaDoc'" />
-        </div>
-        <div class="col s6">
-          <p class="right-align" >Welcome <span sec:authentication="name"></span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></p>
-        </div>
-    </div>
+    <div th:insert="~{fragments/topBar :: topBar}"></div>
 
     <div class="row">
         <div class="col s12">

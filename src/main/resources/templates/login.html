@@ -1,46 +1,148 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Login | Test data</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <title>Login | QoDoc</title>
+  <link rel="stylesheet" href="/css/custom.css">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+  <link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: #c9d6ff;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom,
+          #e2e2e2,
+          #c9d6ff);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #e2e2e2, #c9d6ff) no-repeat fixed;
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    .bg {
+      background: url('https://cdn.pixabay.com/photo/2021/10/04/06/28/cactus-6679665_960_720.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+
+      padding-bottom: 100%;
+    }
+
+    .frame {
+      background-color: #fff;
+    }
+
+    .padded {
+      padding: 0 2rem;
+    }
+
+    .level.fill-height {
+      -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .col-6:first-child {
+      padding-left: 0;
+    }
+
+    .col-6:last-child {
+      padding-right: 0;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      align-items: center;
+      display: flex;
+      padding: 0 0.5rem;
+    }
+
+    .btn-info {
+      margin-left: 1rem;
+    }
+  </style>
 </head>
+</head>
+
 <body>
-  <div class="row">
-    <div class="col s4 push-s4">
-        <h4 class="center-align" th:text="'QaDoc'" />
-    </div>
-  </div>
 
-  <div class="row">
-      <form class="form-signin col s4 push-s4" method="POST" th:action="@{/login}">
 
-        <div class="form-group">
-            <span th:text="${message}"></span>
-            <input name="username" type="text" class="form-control" placeholder="Username"
-                   autofocus="true"/>
+  <div class="hero fullscreen">
+    <div class="hero-body">
+      <div class="content">
+        <form class="frame p-0" method="POST" th:action="@{/login}">
+          <div class="frame__body p-0">
+            <div class="row p-0 level fill-height">
+              <div class="col-6 p-0 bg"></div>
+              <div class="col-6">
+                <div class="space xlarge"></div>
+                <div class="padded">
 
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <span class="has-error" th:text="${error}"></span>
+                  <h4>QaDoc</h4>
+                  <span class="has-error" th:text="${error}"></span>
+                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                  <span th:text="${message}"></span>
 
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                  <div class="form-section">
+                    <div class="input-control">
+                      <input class="input-contains-icon" id="name" name="username" placeholder="Username" type="text"
+                        value="">
+                      <span class="icon">
+                        <i class="far fa-wrapper fa-user-circle small"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-section">
+                    <div class="input-control">
+                      <input class="input-contains-icon" id="password" name="password" placeholder="Password"
+                        type="password" value="">
+                      <span class="icon">
+                        <i class="fas fa-wrapper fa-key small"></i>
+                      </span>
+                    </div>
+                  </div>
 
-            <div class="row">
-              <div class="col s2">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-              </div>
-              <div class="col s2">
-                <a href="/registration"class="waves-effect waves-light btn">Register</a>
+
+                  <div class="row">
+                    <div class="grid grid-cols-2">
+                      <button class="btn-info u-pull-left" name="login" type="submit">
+                        Log in
+                      </button>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                      <button class="btn-ligh u-pull-right" name="register">
+                        <a href="/registration"> Register</a>
+                      </button>
+                    </div>
+
+                  </div>
+
+
+                  <span class="fg-danger info"></span>
+                </div>
+                <div class="space xlarge"></div>
               </div>
             </div>
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
     </div>
-    <script>
-        M.AutoInit();
-    </script>
-  </body>
+  </div>
+</body>
+
 </html>

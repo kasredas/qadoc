@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div th:fragment="topBar">
+        <div sec:authorize="isAuthenticated()">
+            <form id="logoutForm" method="POST" th:action="@{/logout}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </form>
+        </div>
+        <div class="row">
+            <div class="row white">
+                <div class="col s6">
+                    <h4 class="bold" th:text="'QaDoc'" />
+                </div>
+
+                <div class="col s6">
+                    <p class="right-align">
+                        Welcome <span sec:authentication="name"></span> | <a
+                            onclick="document.forms['logoutForm'].submit()">Logout</a>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        M.AutoInit();
+    </script>
+</body>
+
+</html>
