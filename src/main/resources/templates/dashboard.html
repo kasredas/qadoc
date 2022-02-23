@@ -1,49 +1,68 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Test data</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Test data</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Custom css -->
-    <link rel="stylesheet" href="/css/custom.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="/css/custom.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+
 <body class="blue-grey lighten-5">
 
   <div th:insert="~{fragments/topBar :: topBar}"></div>
 
 
-    <div sec:authorize="isAuthenticated()">
-      <form id="logoutForm" method="POST" th:action="@{/logout}">
-          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-      </form> 
+  <div sec:authorize="isAuthenticated()">
+    <form id="logoutForm" method="POST" th:action="@{/logout}">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
+
+    <div class="container">
+
+      <div class="row white z-depth-2">
+        <div class="col s12">
 
       <div class="row">
-
-        <div class="col s4">
-          <a href="/list" class="waves-effect waves-light btn-large col s12">Test list</a>
+        <div class="col s12">
+          <h4 class="center-align"></h4>
         </div>
+      </div>
 
-        <div class="col s4">
-          <a href="#" class="waves-effect waves-light btn-large disabled col s12">Search</a>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6 offset-s3">
+              <i class="material-icons prefix">search</i>
+              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <label for="icon_prefix2">What you are looking for?</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col s6 offset-s3">
+          <a class="btn-large col s6 offset-s3 tooltipped waves-light   light-blue darken-1" data-position="top" data-tooltip="Sorry! not working yet">Search</a>
         </div>
-
-        <div class="col s4">
-          <a href="#" class="waves-effect waves-light btn-large disabled col s12">Tags</a>
-        </div>
-
       </div>
 
     </div>
+  </div>
+</div>
 
-    <script>
-        M.AutoInit();
-    </script>
+  </div>
+
+  <script>
+    M.AutoInit();
+  </script>
 </body>
+
 </html>

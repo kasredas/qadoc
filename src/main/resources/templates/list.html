@@ -11,33 +11,36 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
 
     <div th:insert="~{fragments/topBar :: topBar}"></div>
 
-    <div class="row">
-        <div class="col s12">
-            <table class="striped responsive-table highlight" >
-                <thead>
-                    <tr>
-                        <th class="col s1"> Id </th>
-                        <th class="col s5"> Name </th>
-                        <th class="col s5"> Description </th>
-                    </tr>
-                </thead>
-                <tbody class="">
-                <tr class="" th:if="${Test.empty}">
-                        <td colspan="2"> No Tests </td>
-                    </tr>
-                    <tr class="hoverable" th:each="Test : ${Test}">
-                        <td class="col s1 table-row-bigger" th:text="${Test.Id}"> Id </td>
-                        <td class="col s5 table-row-bigger break-word" th:text="${Test.name}"> Name </td>
-                        <td class="col s5 table-row-bigger break-word" th:text="${Test.description}"> Description </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <table class="highlight" >
+                    <thead>
+                        <tr>
+                            <th class="col s1"> ID </th>
+                            <th class="col s5"> Name </th>
+                            <th class="col s5"> Description </th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    <tr class="" th:if="${Test.empty}">
+                            <td colspan="2"> No Tests </td>
+                        </tr>
+                        <tr class="hoverable" th:each="Test : ${Test}">
+                            <td class="col s1 table-row-bigger valign-wrapper" th:text="${Test.Id}"> Id </td>
+                            <td class="col s5 table-row-bigger break-word valign-wrapper" th:text="${Test.name}"> Name </td>
+                            <td class="col s5 table-row-bigger break-word valign-wrapper" th:text="${Test.description}"> Description </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script>
