@@ -1,26 +1,72 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <p th:text="'Hello, World!'" />
 
-    <table>
-        <thead>
-            <tr>
-                <th> Name </th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${Test.empty}">
-                <td colspan="2"> No Tests </td>
-            </tr>
-            <tr th:each="Test : ${Test}">
-                <td><span th:text="${Test.name}"> Name </span></td>
-            </tr>
-        </tbody>
-    </table>
+<head>
+    <title>Test data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="blue-grey lighten-5">
+
+    <div th:insert="~{fragments/topBar :: topBar}"></div>
+
+
+    <div sec:authorize="isAuthenticated()">
+        <form id="logoutForm" method="POST" th:action="@{/logout}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </form>
+
+        <div class="container">
+
+            <div class="row white z-depth-2">
+                <div class="col s12">
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h4 class="center-align"></h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <table class="highlight responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th> Name </th>
+                                        <th> Description </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:if="${Test.empty}">
+                                        <td colspan="2"> No Tests </td>
+                                    </tr>
+                                    <tr th:each="Test : ${Test}">
+                                        <td><span th:text="${Test.name}"> Name </span></td>
+                                        <td><span th:text="${Test.description}"> description </span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        M.AutoInit();
+    </script>
 </body>
+
 </html>
