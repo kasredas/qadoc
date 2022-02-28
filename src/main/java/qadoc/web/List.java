@@ -22,12 +22,12 @@ public class List {
     return "list";
   }
 
-  // @GetMapping("/single")
-  // public String single(@PathVariable(value = "name") Long name) {
+  @GetMapping("/test/{name}")
+  public String singleTest(@PathVariable(value="name") String name, Model model) {
 
-  //   model.addAttribute("Test", testRepository.findByName(name));
+    model.addAttribute("Test", testRepository.findByName(name));
 
-  //   return "single";
-  // }
+    return "single";
+  }
 
 }
