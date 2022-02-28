@@ -35,7 +35,11 @@
                         </tr>
                         <tr class="hoverable" th:each="Test : ${Test}">
                             <td class="col s1 table-row-bigger valign-wrapper" th:text="${Test.Id}"> Id </td>
-                            <td class="col s5 table-row-bigger break-anywhere valign-wrapper" th:text="${Test.name}"> Name </td>
+                            <td class="col s5 table-row-bigger break-anywhere valign-wrapper">
+                                <a class="casual-link" th:text="${Test.name}" th:href="@{'/test/' + ${Test.name}}" >
+                                    Name
+                                </a>
+                            </td>
                             <td class="col s5 table-row-bigger break-anywhere valign-wrapper" th:text="${Test.description}"> Description </td>
                         </tr>
                     </tbody>
